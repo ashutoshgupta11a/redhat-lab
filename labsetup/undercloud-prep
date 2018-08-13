@@ -51,7 +51,7 @@ while IFS= read -r line; do
                                         --name=${name} \
                                         --property capabilities=profile:${profile},boot_option:local \
                                         -c uuid -f value`
-#  openstack baremetal port create --node ${uuid} ${mac}
+openstack baremetal port create --node ${uuid} ${mac}
 done < <(cat ironic_list)
 
 DEPLOY_KERNEL=$(openstack image show bm-deploy-kernel -f value -c id)
